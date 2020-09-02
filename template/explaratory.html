@@ -1,0 +1,97 @@
+{% extends "index.html" %}
+{% block title %}
+<title>Analysis</title>
+{% endblock %}
+<body>
+{% block body %}
+  <style>
+    section{
+        background-color: linen;
+        margin-left: 10%;
+        margin-right: 10%;
+        text-align: justify;
+        padding-top: 3%;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .class_1 { 
+    margin-left: 20%;
+  }
+
+
+  </style>
+<section>
+<h1>Analysis</h1>
+<h3>Introduction</h3>
+<p>In first section, we discuss trends in conflict as well as other input variables.</p>  
+<p>The first section shows the prevalence of conflict interms of frequency of events as well as 
+    the number of fatalites caused by those events. </p>
+<p> In the second section, we use the frequency of conflict to depict relationship with input variables 
+    such as rainfall, land cover and population changes.</p>
+<h3>Prevalence and impact of conflict</h3>
+<h4>Frequency</h4>
+<div class="class_1">
+  <div id = "frq"></div></div>
+     <script>
+           var spec = '/static/c_frequency_3.json';
+           vegaEmbed("#frq", spec);
+      </script>
+<div class="class_1">
+  <div id = "fat"></div></div>
+     <script>
+           var spec = '/static/c_fatalities_3.json';
+           vegaEmbed("#fat", spec);
+      </script>
+<div class="class_1">
+  <div id = "intensity"></div></div>
+     <script>
+           var spec = '/static/c_intensity_3.json';
+           vegaEmbed("#intensity", spec);
+ 
+      </script>
+
+ <h4>Types of conflict</h4> 
+
+ <div class="class_1">
+  <div id = "id2"></div> </div>
+     <script>
+         var spec = '/static/sub_event_1.json';
+         vegaEmbed("#id2", spec);
+      </script>
+ <div class="class_1">
+  <div id = "id3"></div> </div>
+     <script>
+           var spec = '/static/sub_event_2.json';
+           vegaEmbed("#id3", spec);
+ 
+      </script>
+ <div class="class_1">
+  <div id = "id4"></div> </div>
+     <script>
+           var spec = '/static/sub_event_3.json';
+           vegaEmbed("#id4", spec);
+      </script>
+
+<div class="class_1">
+  <div id = "id5"></div> </div>
+     <script>
+           var spec = '/static/sub_event_4.json';
+           vegaEmbed("#id5", spec);
+ 
+      </script>
+
+<div class="class_1">
+  <div id = "id6"></div> </div>
+     <script>
+           var spec = '/static/sub_event_5.json';
+           vegaEmbed("#id6", spec);
+ 
+      </script>
+ <div class="class_1">
+  <div id = "id7"></div> </div>
+     <script>
+           var spec = '/static/sub_event_6.json';
+           vegaEmbed("#id7", spec);
+ 
+      </script>
+ {% endblock %}    

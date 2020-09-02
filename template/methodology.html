@@ -1,0 +1,100 @@
+{% extends "index.html" %}
+{% block title %}
+<title>Model</title>
+{% endblock %}
+{% block body %}
+<style>
+section{
+        background-color: linen;
+        margin-left: 10%;
+        margin-right: 10%;
+        text-align: justify;
+        padding-top: 3%;
+        padding-right: 10px;
+        padding-left: 10px;
+        }
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  } 
+
+.class1 { 
+    margin-left: 20%;
+  }
+
+.class2 { 
+    margin-left: 20%;
+  }
+
+</style>
+<section>
+<h1>Model</h1>
+<h3>Introduction</h3>
+<p>We evaluated different forms of time-series and tree-based algorithms 
+    using a standard functional form of:
+
+    <img src="/static/Screen Shot 2020-08-13 at 10.27.04 AM.png" alt="">
+   
+</p>
+<p>Where, yi, t+1 is a binary output representing future onset of 
+    conflict at the subnational level (1, conflict; 0,no conflict)
+     as a function of yi, t-k ; previous onset of conflict, xi, t-k ;
+      dynamic input variables in the past; si, static input variables 
+      such as location reference and f(.) is the prediction function 
+      learned by the model. </p>
+<h3>Class imbalance</h3>   
+<p>In reality, conflict occurs in a rare like situation resulting in 
+    a significant class imbalance in the output data between 
+    conflict and non-conflict events. As can be seen from the 
+    following chart, the recorded number of conflict events to that of peaceful events
+    was 1 in 7 for most of the time except in the recent years where the same 
+    figure reached roughly around 1 in 3.
+</p>
+
+    <div class="class1">
+        <div id = "id1"></div> <div id = "pred"></div> </div>
+           <script>
+               var spec = '/static/c_onset_1.json';
+               vegaEmbed("#id1", spec);
+       
+            </script>
+         
+<p>Therefore, appropriate model is needed that can handle the above class 
+    imbalance to make relatively accurate predictions. The 
+    algorithms we evaluated include EasyEnsemble classifier, 
+    standardl random forests, logistic regression (classifier), 
+    xgb classifier, as well as Recurrent Neural Networks (RNNs). </p>
+<p>We find that EasyEnsemble classifier has better 
+    efficiency as it overcomes the problem of class-imbalance. </p>
+
+<h3>Re-occurance of conflict</h3>
+<div class="class2">
+    <div id = "id2"></div> <div id = "pred"></div> </div>
+       <script>
+           var spec = '/static/c_prob.json';
+           vegaEmbed("#id2", spec);
+
+        </script>
+   
+
+<h3>EasyEnsemble Classifier</h3> 
+<p>Undersampling is among the popular methods of handling 
+    class-imbalance.  This method entails taking a subset of the 
+    major class to train the classifier. However, this method has 
+    a main deficiency as it ignores portions of the dataset in an 
+    attempt to balance the output records. </p>
+
+<p>Xu-Ying, Jianxin, and Zhi-Hua (2080), proposed EasyEnsemble classifier
+    to overcome the above deficiency of under sampling. The idea of 
+    EasyEnsemble forecast samples several subsets from the majority 
+    class and combines for a final decision. These independent 
+    amples ultimately take into account the different aspects of the 
+    entire dataset.
+</p>
+
+</section>
+{% endblock %}      
+</body>
+</html>

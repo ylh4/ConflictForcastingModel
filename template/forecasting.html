@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+{% block title %}
+<title>Forecast</title>
+{% endblock %}
+{% block body %}
+<style>
+    section{
+        background-color: linen;
+        margin-left: 10%;
+        margin-right: 10%;
+        text-align: justify;
+        padding-top: 3%;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+
+  }
+  #actl { 
+    margin-left: 20%;
+  }
+
+
+</style>
+<section>
+<h1>Conflict Forecasting System</h1>
+<h2>Monthly</h2>
+<form method = "POST" action="/Forecast/">
+  <label for="conflictMonth">Enter  (month and year):</label>
+  <input type="month" id="conflictmonth" name="conflictmonth">
+  <input type="submit" value="Forecast">
+</form>
+<p>Sytem is predicting for <strong >{{ result }}</strong></p>
+<p>story</p>
+<div id = "actl"></div> 
+     <script>
+
+           var spec = '{{ path }}';
+           vegaEmbed("#actl", spec);
+
+ </script>
+</section>
+{% endblock %}
+   
+
+

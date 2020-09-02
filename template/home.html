@@ -1,0 +1,98 @@
+{% extends "index.html" %}
+{% block title %}
+<title>Home</title>
+{% endblock %}
+<body>
+{% block body %}
+<style>
+    section{
+        background-color: linen;
+        margin-left: 10%;
+        margin-right: 10%;
+        text-align: justify;
+        padding-top: 3%;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+
+  }
+  .act_predict { 
+    margin-left: 20%;
+  }
+
+
+</style>
+
+<section>
+    
+<h1>Conflict Forecasting Model (CFM)</h1>
+<h4>Predicted vs Actual onset of conflict in Ethiopia (2019)</h4> 
+<div class="act_predict">
+ <div id = "actl"></div> <div id = "pred"></div> </div>
+    <script>
+        var spec = '/static/actual.json';
+        vegaEmbed("#actl", spec);
+          var spec = '/static/prediction.json';
+          vegaEmbed("#pred", spec);
+
+     </script>
+
+<h2>Overview</h2>
+<p> Armed conflict is pervasive in East African countries such as 
+    South Sudan and Ethiopia due to a range of reasons. 
+    Conflict also among groups with different 
+    ethnicity, religion, region, or livelihood backgrounds which is typically heightened by-elections, 
+    the implementation of controversial land tenure policies, federalism,  
+    state use of force, and the unintended effects of public and private 
+    investments in the horn of Africa.  As a result, people are killed and displacement 
+    happens in mass due to conflict. Conflict also has a direct economic consewuences such us 
+    destruction of infrastructure, uncertainity indoing business, and increased military 
+    spending (ADB, 2018).
+    </p>
+<p>Appropriate early-warning systems that can meaningfully predict the onset of 
+    conflict is important to respond to crisis ahead of time. This will have a 
+    significant impact on reducing the devastating consequence of conflict 
+    in terms of loss of lives, livelihoods, and infrastructure.</p>
+<p>The goal of this project is to allow users to forecast the onset of conflict in Ethiopia
+    at subnational level and on monthly basis one year ahead of time.</p>
+<h2>Outputs</h2>   
+<p>Our modeling work involves the use of conflict as an 
+    outcome variable extracted from the ACLED dataset. The ACLED 
+    project tracks armed conflict events on a real-time basis. Our model 
+    forecasts conflict in Ethiopia at the admin2/zoneal level as well as one 
+    year ahead of time and on a monthly basis.
+</p>
+<p>To this end, the onset of conflict (cc_onset) is defined as a binary 
+    output variable representing 1, the presence of conflict; 0, 
+    otherwise. 
+</p>
+<h2>Inputs</h2> 
+<p>Below, we describe the list of input variables used in the model and 
+    their brief description.</p>
+
+<h3>Political and military</h3>
+<ul>
+    <li>cc_onset(t-i): Previous onset of conflict</li> 
+    <li>fatalities(t-i): Number of fatalities due to conflict</li> 
+    <li>sd(t-i): Strategic development such as arrest of prominent persons or elections</li> 
+    <li>cc_frequency(t-i): Frequency of conflict (months)</li> 
+    <li>actors(t-i): Name of actors invloved in the conflict</li> 
+    <li>event_type(t-i): type of event such as protest, riots, and use of force</li>
+    <li>TOT_POP(t-i): Number of population</li> 
+    <li>TOT_LIT(2007): percent of litrate population</li> 
+    <li>AGE_20-29 Percentage:(2007): percentage of youth population</li> 
+    <li>et_d(2007): ethnic diversity index</li> 
+    <li>religion_d(2007): religion diversity index</li> 
+    <li>mobile_percentage(2007): mobile phone penetration rate</li> 
+    <li>Television_percentage(2007): television penetration rate</li>
+    <li>Radio_percentage(2007): radio penetration rate</li> 
+    <li>lc_d(t-i): land cover diversification index</li> 
+    <li>mean_rf(t-i): monthly mean rainfall (mm)</li>  
+</ul>
+   
+      
+{% endblock %}      
