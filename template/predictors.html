@@ -4,65 +4,25 @@
 {% endblock %}
 {% block body %}
 <style>
-section{
-        background-color: linen;
-        margin-left: 10%;
-        margin-right: 10%;
-        text-align: justify;
-        padding-top: 3%;
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-    img {
-    display: block;
-    margin-left: 20%;
-  } 
+
 </style>
 <section>
-<h1>Preditors</h1>
-<h3>Feature Importances</h3>
-<p>We evaluated different forms of time-series and tree-based algorithms 
-    using a standard functional form of:
+
+<h1>Feature Importances</h1>
+<h3>Introduction</h3>
+<p>This section presents the twenty most important features that predicted 
+  the onset of conflict in Ethiopia. The section ends by depicting the 
+  relationship between the onset of conflict and the three most important features 
+  in the model.
+<h3>Most important features</h3>
     <div id = "pd"></div>
     <script>
-          var spec = '/static/feature_importance.json';
+          var spec = '/static/feature_importance_1.json';
           vegaEmbed("#pd", spec);
      </script>
    
 </p>
-<p>Where, yi, t+1 is a binary output representing future onset of 
-    conflict at the subnational level (1, conflict; 0,no conflict)
-     as a function of yi, t-k ; previous onset of conflict, xi, t-k ;
-      dynamic input variables in the past; si, static input variables 
-      such as location reference and f(.) is the prediction function 
-      learned by the model. 
-    </p>
-<h3>Class imbalance</h3>   
-<p>In reality, conflict occurs in a rare like situation resulting in 
-    a significant class imbalance in the output data between 
-    conflict and non-conflict events. As can be seen from the 
-    following chart, the recorded number of conflict events to that of peaceful events
-    was 1 in 7 for most of the time except in the recent years where the same 
-    figure reached roughly around 1 in 3.
-</p>
 
-<div id = "prob"></div>
-<script>
-      var spec = '/static/c_prob.json';
-      vegaEmbed("#prob", spec);
- </script>
-
-
-<p>Therefore, appropriate model is needed that can handle the above class 
-    imbalance to make relatively accurate predictions. The 
-    algorithms we evaluated include EasyEnsemble classifier, 
-    standardl random forests, logistic regression (classifier), 
-    xgb classifier, as well as Recurrent Neural Networks (RNNs). 
-</p>
-<p>We find that EasyEnsemble classifier has better 
-    efficiency as it overcomes the problem of class-imbalance. 
-</p>
-    <h3>Relationship between conflict and input variables</h3>
 
     <style>
     * {
@@ -119,10 +79,8 @@ section{
     }
     </style>
   
-   
+  <h3>Relationship between conflict and input variables</h3> 
   <div class="header" id="myHeader">
-
-    <h1>Image Grid</h1>
     <p>Click on the buttons to change the grid view.</p>
     <button class="btn" onclick="one()">1</button>
     <button class="btn active" onclick="two()">2</button>

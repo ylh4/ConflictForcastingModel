@@ -25,33 +25,24 @@ def forecast():
         forecastingdate = datetime.strptime(result['conflictmonth'], '%Y-%m')
         months = datetime.fromtimestamp(int(forecastingdate.timestamp())).strftime('%Y-%m')
         file_path = '/static/dashboard_forecast_' + months + '.json'
-
-        forecastingdate = datetime.fromtimestamp(int(forecastingdate.timestamp())).strftime('%d %b, %Y')
-        return render_template('forecasting.html', result= months, path = file_path)
+        forecastingdate = datetime.fromtimestamp(int(forecastingdate.timestamp())).strftime('%b, %Y')
+        return render_template('forecasting.html', result= forecastingdate, path = file_path)
     else:
         return render_template('forecasting.html', result= " Result will be displayed here " )
 @APP.route("/Predictors/")
 def predictors():
     return render_template('predictors.html')
-@APP.route("/Evaluation")
+@APP.route("/Evaluation/")
 def evaluation():
     return render_template('model_evaluation.html')
+
+@APP.route("/Mselection/")
+def mselection():
+    return render_template('model_selection.html')
  
-embed = """
-<div id="observablehq-ccd29192"></div>
-<script type="module">
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import define from "https://api.observablehq.com/d/eceaa744227c4fea.js?v=3";
-const inspect = Inspector.into("#observablehq-ccd29192");
-(new Runtime).module(define, name => (name === "vegaPetals") && inspect());
-</script>
-"""  
 @APP.route("/contact_us/") 
 def hello_world():
-    return f"""<html>
-  <h1>This is web page served with Flask</h1>
-  {embed}
-</html>"""
+    return render_template ('contact_us.html')
 if __name__ == "__main__":
     APP.run(debug=True)
 

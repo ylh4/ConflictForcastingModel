@@ -1,0 +1,150 @@
+{% extends "index.html" %}
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+<style>
+
+
+  .act_predict { 
+    margin-left: 20%;
+  }
+
+
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .header {
+      text-align: center;
+      padding: 32px;
+    }
+    
+    .row {
+      display: -ms-flexbox; /* IE 10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE 10 */
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+    
+    /* Create two equal columns that sits next to each other */
+    .column {
+      -ms-flex: 50%; /* IE 10 */
+      flex: 50%;
+      padding: 0 4px;
+    }
+    
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+    }
+    
+    /* Style the buttons */
+    .btn {
+      border: none;
+      outline: none;
+      padding: 10px 16px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    
+    .btn:hover {
+      background-color: #ddd;
+    }
+    
+    .btn.active {
+      background-color: #666;
+      color: white;
+    }
+</style>
+
+<section>
+<h1>Model Selection</h1>
+<h3>Introduction</h3>
+<p> We evaluated different forms of algorithms that include 
+  EasyEnsemble classifier, standard random forests classifier, 
+  logistic regression (classifier), xgb classifier, as well as Ada boost classifiers. </p>
+
+<p>The model performance criteria is based on the extent to which
+  a model is correctly classfying the conflict(postive) and 
+  peaceful (negative) events in the data. Depending on the nature of the problem, 
+  the target is to obtain large number either one of or both of 
+  these values. For the purpose of CFM, the aim was to maximise both the True negative and True positive
+  values.</p>
+  
+  <p>In this regard, the appropriate metrix is to look for the proportion
+    of True positive and True negative  records in the classification under the 
+    a prediction error matrix also known as confusion matrix. Similarly,
+    large values of F1 score would adress this criteria.</p> 
+    
+    <p> Accordingly,
+    EasyEnsemble classifier outperformed all other algorithms 
+    having large number of True negative as well as True postive.
+    Consequently, the algorithm was found to have better F1-score.
+  </p>
+
+  <h3>Classification reports</h3>
+  
+  <h3>Prediction Error Matrices</h3>
+    <p>Click on the buttons to change the grid view.</p>
+    <button class="btn" onclick="one()">1</button>
+    <button class="btn active" onclick="two()">2</button>
+
+  </div>
+  
+  <div class="row"> 
+    <div class="column">
+      <img src="/static/cfm_ee_1.png" style="width:80%">
+      <img src="/static/cfm_xgb_1.png" style="width:80%">
+      <img src="/static/cfm_rf_1.png" style="width:80%">
+    </div>
+    <div class="column">
+    <img src="/static/cfm_brf_1.png" style="width:80%">
+      <img src="/static/cfm_ab_1.png" style="width:80%">
+      <img src="/static/cfm_lr_1.png" style="width:80%">
+    </div>  
+  <script>
+  // Get the elements with class="column"
+  var elements = document.getElementsByClassName("column");
+  
+  // Declare a loop variable
+  var i;
+  
+  // Full-width images
+  function one() {
+      for (i = 0; i < elements.length; i++) {
+      elements[i].style.msFlex = "100%";  // IE10
+      elements[i].style.flex = "100%";
+    }
+  }
+  
+  // Two images side by side
+  function two() {
+    for (i = 0; i < elements.length; i++) {
+      elements[i].style.msFlex = "30%";  // IE10
+      elements[i].style.flex = "30%";
+    }
+  }
+
+  // Add active class to the current button (highlight it)
+  var header = document.getElementById("myHeader");
+  var btns = header.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+  </script>
+</section>
+{% endblock %}      
+

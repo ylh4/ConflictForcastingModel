@@ -5,43 +5,37 @@
 <body>
 {% block body %}
   <style>
-    section{
-        background-color: linen;
-        margin-left: 10%;
-        margin-right: 10%;
-        text-align: justify;
-        padding-top: 3%;
-        padding-right: 10px;
-        padding-left: 10px;
-    }
     .class_1 { 
     margin-left: 20%;
-  }
+    margin-right: 20%;
+    }
+    .class_2 { 
+    margin-left: 20%;
+    margin-right: 20%;
+    }
 
 
   </style>
 <section>
 <h1>Analysis</h1>
 <h3>Introduction</h3>
-<p>In first section, we discuss trends in conflict as well as other input variables.</p>  
-<p>The first section shows the prevalence of conflict interms of frequency of events as well as 
-    the number of fatalites caused by those events. </p>
-<p> In the second section, we use the frequency of conflict to depict relationship with input variables 
-    such as rainfall, land cover and population changes.</p>
-<h3>Prevalence and impact of conflict</h3>
-<h4>Frequency</h4>
+<p>Here, trends in conflict events are closely analyzed and presented for 
+      a better understanding of the target variable.</p>  
+<h3>Frequency of conflict</h3>
 <div class="class_1">
   <div id = "frq"></div></div>
      <script>
            var spec = '/static/c_frequency_3.json';
            vegaEmbed("#frq", spec);
       </script>
+<h3>Number of fatalities due to conflict</h3>
 <div class="class_1">
   <div id = "fat"></div></div>
      <script>
            var spec = '/static/c_fatalities_3.json';
            vegaEmbed("#fat", spec);
       </script>
+<h3>Intensity of conflict</h3>
 <div class="class_1">
   <div id = "intensity"></div></div>
      <script>
@@ -50,7 +44,7 @@
  
       </script>
 
- <h4>Types of conflict</h4> 
+ <h3>Types of conflict events</h3> 
 
  <div class="class_1">
   <div id = "id2"></div> </div>

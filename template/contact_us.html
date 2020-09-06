@@ -1,22 +1,29 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact us</title>
-</head>
-<body>
-        <script type="module">
-        
-        // Load the Observable runtime and inspector.
-        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-        
-        // Your notebook, compiled as an ES module.
-        import notebook from "https://api.observablehq.com/@jashkenas/my-neat-notebook.js?v=3";
-        
-        // Load the notebook, observing its cells with a default Inspector
-        // that simply renders the value of each cell into the provided DOM node.
-        new Runtime().module(notebook, Inspector.into(document.body));
-        
-        </script>  
-</body>
-</html>
+{% extends "index.html" %}
+{% block title %}
+<title>Forecast</title>
+{% endblock %}
+{% block body %}
+<style>
+
+    img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    }
+    p {
+        text-align:justify
+
+    }
+
+</style>
+<section>
+<h1>Contact</h1>
+    <H3>Yared Hurisa</H3>
+    <ul>Email: yaredlema@gmail.com</ul>
+    <ul>Phone: 9842158353</ul>
+    <ul>LinkedIn: https://www.linkedin.com/in/yared-lemma/</ul>
+    <ul>GitHub: https://github.com/ylh4/ConflictForcastingModel</ul>
+
+</section>
+{% endblock %}
+   

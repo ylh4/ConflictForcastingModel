@@ -4,21 +4,6 @@
 {% endblock %}
 {% block body %}
 <style>
-section{
-        background-color: linen;
-        margin-left: 10%;
-        margin-right: 10%;
-        text-align: justify;
-        padding-top: 3%;
-        padding-right: 10px;
-        padding-left: 10px;
-        }
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    
-  } 
 
 .class1 { 
     margin-left: 20%;
@@ -30,11 +15,10 @@ img {
 
 </style>
 <section>
-<h1>Model</h1>
+<h1>Model Description</h1>
 <h3>Introduction</h3>
-<p>We evaluated different forms of time-series and tree-based algorithms 
-    using a standard functional form of:
-
+<p>Our objective here is to estimate the standard functional form of:
+  
     <img src="/static/Screen Shot 2020-08-13 at 10.27.04 AM.png" alt="">
    
 </p>
@@ -44,13 +28,19 @@ img {
       dynamic input variables in the past; si, static input variables 
       such as location reference and f(.) is the prediction function 
       learned by the model. </p>
-<h3>Class imbalance</h3>   
+         
+<p>The conflict data has to destinict features that requires special care compared
+  to conventional machine learning problems.
+  These are class imbalance and recurrence. </p>
+ 
+<h3>Class imbalance</h3>
 <p>In reality, conflict occurs in a rare like situation resulting in 
     a significant class imbalance in the output data between 
     conflict and non-conflict events. As can be seen from the 
-    following chart, the recorded number of conflict events to that of peaceful events
-    was 1 in 7 for most of the time except in the recent years where the same 
-    figure reached roughly around 1 in 3.
+    following chart, overall, the percent of postive records for conflict
+    is less than 10 percent for most of the years except for the last 
+    five years. This requires a mechanism that can take into account
+    for the less number of postive(conflict) records in the dataset. 
 </p>
 
     <div class="class1">
@@ -60,16 +50,7 @@ img {
                vegaEmbed("#id1", spec);
        
             </script>
-         
-<p>Therefore, appropriate model is needed that can handle the above class 
-    imbalance to make relatively accurate predictions. The 
-    algorithms we evaluated include EasyEnsemble classifier, 
-    standardl random forests, logistic regression (classifier), 
-    xgb classifier, as well as Recurrent Neural Networks (RNNs). </p>
-<p>We find that EasyEnsemble classifier has better 
-    efficiency as it overcomes the problem of class-imbalance. </p>
-
-<h3>Re-occurance of conflict</h3>
+<h3>Reccurance of conflict</h3>
 <div class="class2">
     <div id = "id2"></div> <div id = "pred"></div> </div>
        <script>
@@ -78,6 +59,7 @@ img {
 
         </script>
    
+<div class="header" id="myHeader">
 
 <h3>EasyEnsemble Classifier</h3> 
 <p>Undersampling is among the popular methods of handling 

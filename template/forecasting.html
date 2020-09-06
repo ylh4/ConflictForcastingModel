@@ -4,21 +4,7 @@
 {% endblock %}
 {% block body %}
 <style>
-    section{
-        background-color: linen;
-        margin-left: 10%;
-        margin-right: 10%;
-        text-align: justify;
-        padding-top: 3%;
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-    img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto; 
 
-  }
   #actl { 
     margin-left: 20%;
   }
@@ -26,15 +12,22 @@
 
 </style>
 <section>
-<h1>Conflict Forecasting System</h1>
-<h2>Monthly</h2>
+<h1>Forecast</h1>
+<h3>Introduction</h3>
+<p>In this section, you will be able to forecast conflict on monthly basis.
+  Additionally, the overall frequency of conflict in terms of number of 
+  months in conflict from August 2020 to July 2021 is shown following 
+  to the monthly forecast. </p>
+<h3>Monthly</h3>
+<p>Click the Forecast button after selecting the year and month.</p>
+
 <form method = "POST" action="/Forecast/">
   <label for="conflictMonth">Enter  (month and year):</label>
-  <input type="month" id="conflictmonth" name="conflictmonth">
+  <input type="month" id="conflictmonth" name="conflictmonth"   min="2020-08" value="2020-08"
+       max="2021-07">
   <input type="submit" value="Forecast">
 </form>
-<p>Sytem is predicting for <strong >{{ result }}</strong></p>
-<p>story</p>
+<p>Forecast for <strong >{{ result }}</strong></p>
 <div id = "actl"></div> 
      <script>
 
@@ -42,6 +35,15 @@
            vegaEmbed("#actl", spec);
 
  </script>
+
+<h3>Annual</h3>
+
+<div id = "id1"></div>
+<script>
+      var spec = '/static/forecast_1.json';
+      vegaEmbed("#id1", spec);
+ </script>
+
 </section>
 {% endblock %}
    

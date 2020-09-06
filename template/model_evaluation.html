@@ -5,21 +5,7 @@
 
 {% block body %}
 <style>
-    section{
-        background-color: linen;
-        margin-left: 10%;
-        margin-right: 10%;
-        text-align: justify;
-        padding-top: 3%;
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-    img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto; 
 
-  }
   .act_predict { 
     margin-left: 20%;
   }
@@ -81,60 +67,27 @@
 
 <section>
     <h1>Model Evaluation</h1>
-  <div class="header" id="myHeader">
+    <h3>Introduction</h3>
+    <p>In this section, the results from CFM perforemance 
+      evaluations are presented. This include spacial presentation
+    of actual vs predited values of onset of conflict in the coming 
+  one year, and results from error matrix and classification report.</p>
+    <h3>Actual vs Prediction</h3>
+    <h4>Annual</h4>
+    <div class="act_predict">
+      <div id = "actl"></div> <div id = "pred"></div> </div>
+         <script>
+             var spec = '/static/actual_1.json';
+             vegaEmbed("#actl", spec);
+               var spec = '/static/prediction_2.json';
+               vegaEmbed("#pred", spec);
+     
+          </script>
+    <h4>Monthly</h4>
+    <h3>CFM Error Matrix</h3>
+    <img src="/static/cfm_ee_final.png" alt="">
 
-    <h3>Prediction Error Matrix</h3>
-    <p>Click on the buttons to change the grid view.</p>
-    <button class="btn" onclick="one()">1</button>
-    <button class="btn active" onclick="two()">2</button>
 
-  </div>
-  
-  <div class="row"> 
-    <div class="column">
-      <img src="/static/cfm_ee.png" style="width:80%">
-      <img src="/static/cfm_xgb.png" style="width:80%">
-      <img src="/static/cfm_rf.png" style="width:80%">
-    </div>
-    <div class="column">
-    <img src="/static/cfm_brf.png" style="width:80%">
-      <img src="/static/cfm_ab.png" style="width:80%">
-      <img src="/static/cfm_lr.png" style="width:80%">
-    </div>  
-  <script>
-  // Get the elements with class="column"
-  var elements = document.getElementsByClassName("column");
-  
-  // Declare a loop variable
-  var i;
-  
-  // Full-width images
-  function one() {
-      for (i = 0; i < elements.length; i++) {
-      elements[i].style.msFlex = "100%";  // IE10
-      elements[i].style.flex = "100%";
-    }
-  }
-  
-  // Two images side by side
-  function two() {
-    for (i = 0; i < elements.length; i++) {
-      elements[i].style.msFlex = "30%";  // IE10
-      elements[i].style.flex = "30%";
-    }
-  }
-
-  // Add active class to the current button (highlight it)
-  var header = document.getElementById("myHeader");
-  var btns = header.getElementsByClassName("btn");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-    });
-  }
-  </script>
 </section>
 {% endblock %}      
 
