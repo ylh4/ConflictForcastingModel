@@ -12,4 +12,4 @@ Armed conflict is a pervasive problem in East African countries such as South Su
 
 Appropriate early-warning systems that can meaningfully predict the onset of communal conflict are important to respond to the crisis ahead of time. This will have a significant impact on reducing the devastating consequence of conflict in terms of loss of lives, livelihoods, and infrastructure.
 
-This project was done in fulfillment of the 2020 summer data science fellowship at The Data Incubator. The assignment included a web application using flask and Heroku which can be accessed [here](conflictforecastingmodel.herokuapp.com).
+This project was done in fulfillment of the 2020 summer data science fellowship at The Data Incubator. The assignment included a web application using flask and Heroku which can be accessed [here](https://conflictforecastingmodel.herokuapp.com/).
